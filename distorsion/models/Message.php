@@ -6,13 +6,15 @@ class Message
     
     private int $id;
     private string $content;
+    private User $author;
     
     // Constructor //
 
-    public function __construct(string $content)
+    public function __construct(string $content, User $author)
     {
         $this->id = NULL;
         $this->content = $content;
+        $this->author = $author;
     }
 
     // Getters //
