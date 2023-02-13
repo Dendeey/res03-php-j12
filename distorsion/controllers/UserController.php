@@ -30,7 +30,7 @@ class UserController extends AbstractController
     {
         $userToAdd = new User($post["email"], $post["username"], $post["password"]);
         $this->manager->insertUser($userToAdd);
-        render('create', ["user"=>$this->manager->insertUser($userToAdd)]);
+        $this->render('create', ["user"=>$this->manager->insertUser($userToAdd)]);
 
     }
 
@@ -38,7 +38,7 @@ class UserController extends AbstractController
     {
         $userToEdit = new User($post["email"], $post["username"], $post["password"]);
         $this->manager->editUser($userToEdit);
-        render('edit', ["user" => $userToEdit]);
+        $this->render('edit', ["user" => $userToEdit]);
 
     }
     

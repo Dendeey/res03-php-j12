@@ -8,8 +8,5 @@ session_start();
 
 require "services/Router.php";
 
-// Tests //
-
-
 
 ?>
