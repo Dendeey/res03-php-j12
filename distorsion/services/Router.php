@@ -30,7 +30,7 @@ class Router
             'register'=> 'todo register controller',
             'index' => $this->homeController->index(),
             default => $this->homeController->index(),
-        }
+        };
 
     }
 

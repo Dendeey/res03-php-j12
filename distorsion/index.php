@@ -4,9 +4,9 @@
 
 session_start();
 
-// Requires //
 
-require "services/Router.php";
+/*require "services/Router.php";*/
+
 
 
 ?>

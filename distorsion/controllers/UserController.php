@@ -35,13 +35,7 @@ class UserController extends AbstractController
 
     }
 
-    public function edit(array $post) : void
-    {
-        $userToEdit = new User($post["email"], $post["username"], $post["password"]);
-        $this->manager->editUser($userToEdit);
-        $this->render('edit', ["user" => $userToEdit]);
-
-    }
+    
 
 }
 
