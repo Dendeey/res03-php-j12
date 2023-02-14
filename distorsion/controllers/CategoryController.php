@@ -32,13 +32,6 @@ class CategoryController extends AbstractController
 
     }
 
-	public function edit(array $post) : void
-    {
-        $userToEdit = new Category($post["name"], $post["description"]);
-        $this->uManager->editCategory($categoryToEdit);
-        $this->render('edit', ["category" => $categoryToEdit]);
-
-    }
 
 }
 

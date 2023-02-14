@@ -1,0 +1,19 @@
+<form method="post" action="index.php?create-room">
+    <fieldset>
+        <label for="room-name">Nom</label>
+        <input type="text" name="room-name"/>
+    </fieldset>
+    <fieldset>
+        <label for="category-select">Choisir une catégorie : </label>
+        <select name="category-select" id="category-select">
+            <option value="">--Choisir une option--</option>
+            <?php foreach($categories as $category) { ?>
+            <option value=<?= $category->getId()?>><?= $category->getName() ?></option>
+            <?php } ?>
+        </select>
+    </fieldset>
+    <fieldset>
+        <input type="submit" name="submit" value="Céer le salon"/>
+    </fieldset>
+    <input type="hidden" name="formRoom"/>
+</form>
