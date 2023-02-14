@@ -1,7 +1,7 @@
 <?php
 
-require  'AbstractController.php';
-require  'managers/MessageManager.php';
+//require  'AbstractController.php';
+//require  'managers/MessageManager.php';
 
 class MessageController extends AbstractController
 {

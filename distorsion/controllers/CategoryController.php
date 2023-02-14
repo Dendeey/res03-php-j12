@@ -1,7 +1,6 @@
 <?php
 
-require  'AbstractController.php';
-require  'managers/CategoryManager.php';
+//require  'AbstractController.php';
 
 class CategoryController extends AbstractController
 

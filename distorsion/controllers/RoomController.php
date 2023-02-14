@@ -1,7 +1,7 @@
 <?php
 
-require  'AbstractController.php';
-require  'managers/RoomManager.php';
+// require  'AbstractController.php';
+//require  'managers/RoomManager.php';
 
 class RoomController extends AbstractController
 {

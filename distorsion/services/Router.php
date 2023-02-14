@@ -1,8 +1,12 @@
 <?php
 
 // Requires //
-
-require "./controllers/UserController.php";
+require 'managers/AbstractManager.php';
+require './managers/CategoryManager.php';
+require './controllers/UserController.php';
+require './controllers/CategoryController.php';
+require './controllers/RoomController.php';
+require './controllers/MessageController.php';
 
 class Router
 {
@@ -19,9 +23,9 @@ class Router
     public function __construct()
     {
         $this->userController = new UserController();
-        $this->CategoryController = new CategoryController();
-        $this->RoomController = new RoomController();
-        $this->MessageController = new MessageController();
+        $this->categoryController = new CategoryController();
+        $this->roomController = new RoomController();
+        $this->messageController = new MessageController();
     }
 
 
@@ -31,20 +35,24 @@ class Router
     {
         $post = $_POST;
 
-        if($_SESSION['authentification'] === true) {
-
+        if(isset($_SESSION['authentification']) && $_SESSION['authentification'] === "ok") {
+            match ($route) {
+                'index' => $this->userController->index(),
+                'create-category' => $this->categoryController->create(),
+                'create-room' => $this->roomController->create(),
+                default => $this->userController->index(),
+                'create-message' => $this->messageController->create(),
+            };
         }
 
-        match ($route) {
-            'authentification' => $this->userController->
-            'login' => $this->userController->login($post),
-            'register' => $this->userController->register($post),
-            'index' => $this->userController->index(),
-            'create-category' => $this->categoryController->create(),
-            'create-room' => $this->roomController->create(),
-            default => $this->userController->index(),
-        };
-
+        else {
+            match ($route) {
+                'authentification' => $this->userController->authentification(),
+                'login' => $this->userController->login($post),
+                'register' => $this->userController->register($post),
+                default => $this->userController->authentification(),
+            };
+        }
     }
 
 }

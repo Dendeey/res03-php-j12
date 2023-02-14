@@ -7,7 +7,7 @@ abstract class AbstractController
     {
     	$template = $view;
     	$data = $values;
-    	require 'view/layout.phtml';
+    	require 'views/layout.phtml';
     }
 
 }
