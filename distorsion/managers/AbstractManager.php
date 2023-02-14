@@ -16,12 +16,13 @@ abstract class AbstractManager
        $this->dbname = $dbname; $this->port = $port; 	  $this->host = $host; 
        $this->username = $username; 
        $this->password = $password; 
-       $this->db = new  PDO( 
+       $this->db = new  PDO
+       ( 
     	 "mysql:host=$host;
     	  port=$port;
     	  dbname=$dbname",
     	  $username, 
-    	  $password 
+    	  $password
         ); 
    }
 }

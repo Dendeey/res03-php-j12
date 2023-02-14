@@ -31,6 +31,10 @@ class Router
     {
         $post = $_POST;
 
+        if($_SESSION['authentification'] === true) {
+
+        }
+
         match ($route) {
             'authentification' => $this->userController->
             'login' => $this->userController->login($post),

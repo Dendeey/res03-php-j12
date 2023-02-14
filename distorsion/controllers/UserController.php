@@ -32,12 +32,12 @@ class UserController extends AbstractController
     public function index() : void
     {
 
-        render('index', []);
+        $this->render('index', []);
     }
 
     public function authentification() : void
     {
-        render('authentification', []);
+        $this->render('authentification', []);
     }
 
     public function register(array $post) : void

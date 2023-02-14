@@ -13,9 +13,9 @@ class User
 
     public function __construct(string $email, string $username, string $password)
     {
-        $this->id = NULL;
+        $this->id = -1;
         $this->email = $email;
-        $this->username = $email;
+        $this->username = $username;
         $this->password = $password;
     }
 

@@ -4,7 +4,7 @@
 
 session_start();
 
-// Requires //
+
 
 require "services/Router.php";
 $router = new Router();
@@ -17,9 +17,6 @@ if (isset($_GET["route"])) {
 else {
     $router->checkroute("");
 }
-
-
-// Tests //
 
 
 
