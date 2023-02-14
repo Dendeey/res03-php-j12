@@ -1,0 +1,28 @@
+<section id="read">
+    <h1 class="sr-only">Catégorie et salon</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><?php //catégorie ?> /</li>
+                <li><?php //room  ?></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <ul>
+            <?php foreach($messages as $message){ ?>
+            <li>
+                <article>
+                    <header>
+                        <?php // username de l'utilisateur ?>
+                    </header>
+                    <p>
+                        <?php // message tapé par l'utilisateur ?>
+                    </p>
+                </article>
+            </li>
+            <?php } ?>
+        </ul>
+    </section>
+    <?php require "_message-form.phtml"; ?>
+</section>

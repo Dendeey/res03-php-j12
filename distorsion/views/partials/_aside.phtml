@@ -1,0 +1,16 @@
+<aside>
+    <nav>
+        <ul>
+            <?php foreach($categories as $category){ ?>
+            <li> 
+                <h3><?php echo $category->getCategoryById(); ?></h3>
+                <ul>
+                    <?php foreach($rooms as $room){ ?>
+                    <li><a href=""><?php echo $room->getRoomById(); ?></a></li>
+                    <?php } ?>
+                </ul>
+            </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</aside>
