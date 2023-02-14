@@ -32,6 +32,7 @@ class Router
         $post = $_POST;
 
         match ($route) {
+            'authentification' => $this->userController->
             'login' => $this->userController->login($post),
             'register' => $this->userController->register($post),
             'index' => $this->userController->index(),

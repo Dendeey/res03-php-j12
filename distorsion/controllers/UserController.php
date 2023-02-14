@@ -29,10 +29,15 @@ class UserController extends AbstractController
 
     // METHODES
 
-    public function index()
+    public function index() : void
     {
 
         render('index', []);
+    }
+
+    public function authentification() : void
+    {
+        render('authentification', []);
     }
 
     public function register(array $post) : void
