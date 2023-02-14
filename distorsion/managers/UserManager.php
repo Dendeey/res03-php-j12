@@ -1,6 +1,6 @@
 <?php
 
-class UserManager extends AbstractManager 
+class UserManager extends AbstractManager
 {
 
     public function getUserById(int $id) : User
@@ -17,7 +17,7 @@ class UserManager extends AbstractManager
 
     }
 
-    /*public function getUserByEmail(string $email) : User
+    public function getUserByEmail(string $email) : User
     {
         $query = $db->prepare('SELECT * FROM users WHERE email = :email');
         $parameters = [
@@ -28,7 +28,7 @@ class UserManager extends AbstractManager
 
         $userToLoad = new User($user['email'], $user['username'], $user['password']);
         $userToLoad->setId($user['id']);
-    }*/
+    }
 
     public function insertUser(User $user) : User
     {

@@ -28,12 +28,6 @@ class RoomController extends AbstractController
 
     }
 
-	public function edit(array $post) : void
-    {
-        $roomToEdit = new Room($post["name"]);
-        $this->uManager->editCategory($categoryToEdit);
-        render('edit', ["category" => $categoryToEdit]);
-	}
 }
 
 ?>

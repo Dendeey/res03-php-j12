@@ -3,7 +3,6 @@
 // Requires //
 
 require "./controllers/UserController.php";
-require './controller/HomeController.php';
 
 class Router
 {
@@ -11,14 +10,18 @@ class Router
     // Attributs //
 
     private UserController $userController;
-    private HomeController $homeController;
+    private CategoryController $categoryController;
+    private RoomController $roomController;
+    private MessageController $messageController;
 
     // Constructor //
 
     public function __construct()
     {
         $this->userController = new UserController();
-        $this->homeController = new HomeController();
+        $this->CategoryController = new CategoryController();
+        $this->RoomController = new RoomController();
+        $this->MessageController = new MessageController();
     }
 
 
@@ -26,13 +29,16 @@ class Router
 
     public function checkRoute(string $route) : void
     {
+        $post = $_POST;
 
         match ($route) {
-            'login'=> 'todo login controller',
-            'register'=> 'todo register controller',
-            'index' => $this->homeController->index(),
-            default => $this->homeController->index(),
-        }
+            'login' => $this->userController->login($post),
+            'register' => $this->userController->register($post),
+            'index' => $this->userController->index(),
+            'create-category' => $this->categoryController->create(),
+            'create-room' => $this->roomController->create(),
+            default => $this->userController->index(),
+        };
 
     }
 
