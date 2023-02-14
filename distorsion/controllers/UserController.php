@@ -3,8 +3,7 @@
 require 'AbstractController.php';
 require 'managers/UserManager.php';
 require 'managers/RoomManager.php';
-require 'manager/CategoryManager.php';
-require 'manager/MessageManager.php';
+require 'managers/MessageManager.php';
 
 class UserController extends AbstractController
 {

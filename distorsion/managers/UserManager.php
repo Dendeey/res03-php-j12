@@ -1,8 +1,7 @@
 <?php
 
-require "AbstractManager.php";
 
-class UserManager extends AbstractManager 
+class UserManager extends AbstractManager
 {
 
     public function getUserById(int $id) : User
