@@ -1,6 +1,6 @@
 <?php
 
-abstract class AbstractController 
+abstract class AbstractController
 {
 
     public function render(string $view , array $values) : void

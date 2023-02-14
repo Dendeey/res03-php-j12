@@ -1,20 +1,20 @@
 <?php
 
-require  'AbstractController.php';  
-require  'managers/messageManager.php';
+require  'AbstractController.php';
+require  'managers/MessageManager.php';
 
-class MessageController extends AbstractController 
+class MessageController extends AbstractController
 {
 
 	private MessageManager  $mManager;
-	
+
 	public function __construct()
 	{
 	    $this->mManager = new MessageManager
-	    ("davidsim_phpj11", "3306", "db.3wa.io", 
-	    "davidsim", "83c8b946aee433563583381d62aa9c15"); 
+	    ("davidsim_phpj11", "3306", "db.3wa.io",
+	    "davidsim", "83c8b946aee433563583381d62aa9c15");
 	}
-	
+
 	public function index()
     {
         render('index', ["messages"=>$this->mManager->getAllMessages()]);
