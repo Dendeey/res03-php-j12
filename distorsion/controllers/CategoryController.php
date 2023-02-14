@@ -1,41 +1,45 @@
 <?php
 
-require  'AbstractController.php';  
+require  'AbstractController.php';
 require  'managers/CategoryManager.php';
 
-class CategoryController extends AbstractController 
+class CategoryController extends AbstractController
 
 {
-	private CategoryManager  $cManager;
-	
+	private CategoryManager  $categoryManager;
+
 	public function __construct()
 	{
-	    $this->cManager = new CategoryManager
-	    ("davidsim_phpj11", "3306", "db.3wa.io", 
-	    "davidsim", "83c8b946aee433563583381d62aa9c15"); 
+	    $this->categoryManager = new CategoryManager(
+	        "davidsim_phpj11",
+	        "3306",
+	        "db.3wa.io",
+	        "davidsim",
+	        "83c8b946aee433563583381d62aa9c15",
+	    );
 	}
-	
+
 	public function index()
     {
-        render('index', ["users"=>$this->uManager->getAllCategories()]);
+        $this->render('index', ["users"=>$this->uManager->getAllCategories()]);
     }
 
 	public function create(array $post) : void
     {
         $categoryToAdd = new Category($post["name"], $post["description"]);
         $this->uManager->insertCategory($categoryToAdd);
-        render('create', ["category"=>$this->uManager->insertCategory($categoryToAdd)]);
+        $this->render('create', ["category"=>$this->uManager->insertCategory($categoryToAdd)]);
 
     }
-    
+
 	public function edit(array $post) : void
     {
         $userToEdit = new Category($post["name"], $post["description"]);
         $this->uManager->editCategory($categoryToEdit);
-        render('edit', ["category" => $categoryToEdit]);
+        $this->render('edit', ["category" => $categoryToEdit]);
 
     }
-    
+
 }
-    
+
 ?>

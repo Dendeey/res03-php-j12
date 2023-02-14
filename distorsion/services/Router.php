@@ -3,48 +3,39 @@
 // Requires //
 
 require "./controllers/UserController.php";
+require './controller/HomeController.php';
 
 class Router
 {
-    
+
     // Attributs //
-    
-    private UserController $usercontroller;
-    
+
+    private UserController $userController;
+    private HomeController $homeController;
+
     // Constructor //
-    
+
     public function __construct()
     {
-        $this->usercontroller = new UserController();
-        
+        $this->userController = new UserController();
+        $this->homeController = new HomeController();
     }
-    
-    
+
+
     // METHODES //
-    
+
     public function checkRoute(string $route) : void
     {
-        
-        if($route === "users")
-        {
-            $this->usercontroller->index();
+
+        match ($route) {
+            'login'=> 'todo login controller',
+            'register'=> 'todo register controller',
+            'index' => $this->homeController->index(),
+            default => $this->homeController->index(),
         }
-        else if($route === "user-create")
-        {
-            $this->usercontroller->create();
-        }
-        else if($route === "user-edit")
-        {
-            $this->usercontroller->edit();
-        }
-        else
-        {
-            $this->usercontroller->index();
-        }
-        
+
     }
-    
-    
+
 }
 
 ?>
