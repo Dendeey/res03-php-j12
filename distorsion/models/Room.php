@@ -1,22 +1,24 @@
 <?php
 
-class Room 
+class Room
 {
     // Attributs //
-    
-    private int $id;
+
+    private ?int $id;
     private string $name;
     private array $messages;
-    
+    private int $categoryId;
+
     // Constructor //
 
-    public function __construct(string $name)
+    public function __construct(string $name, int $categoryId)
     {
         $this->id = NULL;
         $this->name = $name;
-        $this->messages = $messages;
+        $this->messages = [];
+        $this->categoryId = $categoryId;
     }
-    
+
     // Getters //
 
     public function getId() : int
@@ -34,6 +36,11 @@ class Room
 		return $this->messages;
 	}
 
+	public function getCategoryId() : int
+	{
+	    return $this->categoryId;
+	}
+
     // Setters //
 
     public function setId($id) : void
@@ -49,6 +56,11 @@ class Room
     public function setMessages($message): void
     {
 	    $this->messages = $messages;
+	}
+
+	public function setCategoryId($categoryId) : void
+	{
+	    $this->categoryId = $categoryId;
 	}
 }
 

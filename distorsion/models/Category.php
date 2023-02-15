@@ -1,10 +1,10 @@
 <?php
 
-class Category 
+class Category
 {
     // Attributs //
-    
-    private int $id;
+
+    private ?int $id;
     private string $name;
     private string $description;
     private array $rooms;
@@ -35,32 +35,37 @@ class Category
     {
         return $this->description;
     }
-    
+
 	public function getRooms() : array
     {
         return $this->rooms;
     }
 
     // Setters //
-    
-    public function setId($id) : void
+
+    public function setId(int $id) : void
     {
         $this->id = $id;
     }
 
-    public function setName($name) : void
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
-    public function setDescription($description) : void
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
 
-	public function setRooms($rooms) : void
+	public function setRooms(array $rooms) : void
     {
         $this->rooms = $rooms;
+    }
+
+    public function addRoom(Room $room) : void
+    {
+        $this->rooms[] = $room;
     }
 
 }

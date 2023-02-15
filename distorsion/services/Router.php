@@ -35,13 +35,14 @@ class Router
     {
         $post = $_POST;
 
-        if(isset($_SESSION['authentification']) && $_SESSION['authentification'] === "ok") {
+        if(isset($_SESSION['authentification']) && $_SESSION['authentification'] === 'ok') {
             match ($route) {
                 'index' => $this->userController->index(),
                 'create-category' => $this->categoryController->create(),
                 'create-room' => $this->roomController->create(),
-                default => $this->userController->index(),
                 'create-message' => $this->messageController->create(),
+                default => $this->userController->index(),
+
             };
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-class RoomManager extends AbstractManager 
+class RoomManager extends AbstractManager
 {
 
     public function getRoomById(int $id) : Room
@@ -12,7 +12,7 @@ class RoomManager extends AbstractManager
         $query->execute($parameters);
         $room = $query->fetch(PDO::FETCH_ASSOC);
 
-        $RoomToLoad = new Room($room['name']);
+        $RoomToLoad = new Room($room['name'], $room['category_id']);
         $RoomToLoad->setId($room['id']);
 
     }
@@ -26,25 +26,25 @@ class RoomManager extends AbstractManager
         $rooms = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach($rooms as $room)
         {
-            $roomToPush = new Room($room["name"]);
-            $roomToPush->setId($room["id"]);
+            $roomToPush = new Room($room['name'], $room['category_id']);
+            $roomToPush->setId($room['id']);
             $roomsTab[] = $roomToPush;
         }
 
         return $roomsTab;
     }
 
-    public function insertRoom(Room $room, int $categoryId) : ?Room
+    public function insertRoom(Room $room) : ?Room
     {
         $query = $this->db->prepare('INSERT INTO rooms (`id`, `name`, `category_id`) VALUES(NULL, :name, :category_id)');
 
         $parameters = [
         'name' => $room->getName(),
-        'category_id' => $categoryId
+        'category_id' => $room->getCategoryId(),
         ];
         $query->execute($parameters);
         $isValid = $query->execute($parameters);
-       
+
        if(!$isValid)
        {
 	      return null;
@@ -60,7 +60,7 @@ class RoomManager extends AbstractManager
 
     public function editRoom(Room $room) : void
     {
-        $query = $this->db->prepare('UPDATE rooms SET name = :name = :description WHERE id = :id ');
+        $query = $this->db->prepare('UPDATE rooms SET name = :name WHERE id = :id ');
         $parameters = [
             'id' => $rooms->getId(),
             'name' => $room->getName()
