@@ -18,7 +18,7 @@ class UserController extends AbstractController
     {
 	    $this->manager = new UserManager
 	    (
-	        "davidsim_phpj12",
+	        "davidsim_phpj11",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -41,6 +41,7 @@ class UserController extends AbstractController
 
     public function register(array $post) : void
     {
+<<<<<<< HEAD
         if (!empty($post['newUsername'])
         && !empty($post['newEmail'])
         && !empty($post['newPassword'])
@@ -70,11 +71,17 @@ class UserController extends AbstractController
             $this->render('authentification', ['error' => 'Merci de remplir tous les champs']);
         }
 
+=======
+        $userToAdd = new User($post["email"], $post["username"], $post["password"]);
+        $this->manager->insertUser($userToAdd);
+        $this->render('index', []);
+>>>>>>> 64b153431c30f81f79eaaf773e8eb556e1e4d313
 
     }
 
     public function login(array $post) : void
     {
+<<<<<<< HEAD
         if (!empty($post['email']) && !empty($post['password'])) {
             $logEmail = $post['email'];
             $passToCheck = password_hash($post['password'], PASSWORD_DEFAULT);
@@ -106,6 +113,11 @@ class UserController extends AbstractController
         }
 
 
+=======
+        $logEmail = $post["email"];
+        $this->manager->getUserByEmail($logEmail);
+        $this->render('index', );
+>>>>>>> 64b153431c30f81f79eaaf773e8eb556e1e4d313
     }
 
     public function display() : array
@@ -114,7 +126,7 @@ class UserController extends AbstractController
 
         $categoryToLoad = new CategoryManager
         (
-            "davidsim_phpj12",
+            "davidsim_phpj11",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -125,7 +137,7 @@ class UserController extends AbstractController
 
         $messageToLoad = new MessageManager
         (
-            "davidsim_phpj12",
+            "davidsim_phpj11",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -136,7 +148,7 @@ class UserController extends AbstractController
 
         $roomToLoad = new RoomManager
         (
-            "davidsim_phpj12",
+            "davidsim_phpj11",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",

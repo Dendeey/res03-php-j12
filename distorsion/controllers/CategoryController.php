@@ -10,7 +10,7 @@ class CategoryController extends AbstractController
 	public function __construct()
 	{
 	    $this->categoryManager = new CategoryManager(
-	        "davidsim_phpj12",
+	        "davidsim_phpj11",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",

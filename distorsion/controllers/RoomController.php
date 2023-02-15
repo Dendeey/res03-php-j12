@@ -11,7 +11,7 @@ class RoomController extends AbstractController
 	public function __construct()
 	{
 	    $this->rManager = new RoomManager
-	    ("davidsim_phpj12", "3306", "db.3wa.io",
+	    ("davidsim_phpj11", "3306", "db.3wa.io",
 	    "davidsim", "83c8b946aee433563583381d62aa9c15");
 	}
 
