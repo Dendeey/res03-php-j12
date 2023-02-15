@@ -1,5 +1,6 @@
 <?php
 
+require 'models/Category.php';
 
 class CategoryManager extends AbstractManager
 {

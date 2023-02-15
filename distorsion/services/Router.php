@@ -35,6 +35,11 @@ class Router
     {
         $post = $_POST;
 
+
+
+
+
+
         if(isset($_SESSION['authentification']) && $_SESSION['authentification'] === 'ok') {
             match ($route) {
                 'index' => $this->userController->index(),

@@ -10,14 +10,14 @@
     </header>
     <section>
         <ul>
-            <?php foreach($messages as $message){ ?>
+            <?php foreach($data['messages'] as $message){ ?>
             <li>
                 <article>
                     <header>
                         <?php // username de l'utilisateur ?>
                     </header>
                     <p>
-                        <?php // message tapé par l'utilisateur ?>
+                        <?= $message->getContent() ?>
                     </p>
                 </article>
             </li>

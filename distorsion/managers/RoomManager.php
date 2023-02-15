@@ -1,5 +1,7 @@
 <?php
 
+require 'models/Room.php';
+
 class RoomManager extends AbstractManager
 {
 

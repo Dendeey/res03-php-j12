@@ -1,6 +1,25 @@
+<h1>INDEX CONNECTE</h1>
+<?php var_dump($data['messages']); ?>
+<aside>
+    <nav>
+        <ul>
+            <?php foreach($data['categories'] as $category){ ?>
+            <li>
+                <h3><?= $category->getName(); ?></h3>
+                <ul>
+                    <h2></h2>
+                    <?php $rooms = $category->getRooms();
+                    foreach($rooms as $room){ ?>
+                    <li><a href="index.php?route=index&salon=<?= $room->getId(); ?>"><?= $room->getName()?></a></li>
+                    <?php } ?>
+                </ul>
+            </li>
+            <?php  } ?>
+        </ul>
+    </nav>
+</aside>
 <?php
 
-require "partials/_aside.phtml";
-require "message/message.phtml";
+require 'views/message/message.phtml';
 
 ?>

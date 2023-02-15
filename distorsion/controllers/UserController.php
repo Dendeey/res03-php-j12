@@ -25,14 +25,34 @@ class UserController extends AbstractController
 	        "83c8b946aee433563583381d62aa9c15"
 	    );
     }
-    
+
 
     // METHODES
 
     public function index() : void
     {
+        if (isset($_GET['salon']) ) {
 
-        $this->render('index', []);
+            $salon = $_GET['salon'];
+        }
+
+        else {
+            $salon = 1;
+        }
+
+        $messageToLoad = new MessageManager
+        (
+            "davidsim_phpj12",
+	        "3306",
+	        "db.3wa.io",
+	        "davidsim",
+	        "83c8b946aee433563583381d62aa9c15",
+        );
+
+
+        $allMessages = $messageToLoad->getAllMessagesByRoomId($salon);
+        $this->render('index', ['categories'=> $this->display(),
+        'messages' => $allMessages]);
     }
 
     public function authentification() : void
@@ -42,7 +62,6 @@ class UserController extends AbstractController
 
     public function register(array $post) : void
     {
-        var_dump($post);
 
         if (!empty($post['newUsername'])
         && !empty($post['newEmail'])
@@ -112,8 +131,9 @@ class UserController extends AbstractController
 
     }
 
-    public function display() : array
+    private function display() : array
     {
+
 
         $categoryToLoad = new CategoryManager
         (
@@ -126,16 +146,8 @@ class UserController extends AbstractController
 
 	    $allCategories = $categoryToLoad->getAllCategories();
 
-        $messageToLoad = new MessageManager
-        (
-            "davidsim_phpj12",
-	        "3306",
-	        "db.3wa.io",
-	        "davidsim",
-	        "83c8b946aee433563583381d62aa9c15",
-        );
 
-        $allMessages = $messageToLoad->getAllMessages();
+
 
         $roomToLoad = new RoomManager
         (
@@ -147,18 +159,18 @@ class UserController extends AbstractController
         );
 
         $allRooms = $roomToLoad->getAllRooms();
-
+        $hydratedCategory = [];
         foreach($allCategories as $category) {
             foreach($allRooms as $room) {
-                if ($room->getCategoryId() === $category->getId) {
+
+                if ($room->getCategoryId() === $category->getId()) {
                     $category->addRoom($room);
+                    $hydratedCategory[] = $category;
                 }
             }
         }
 
-        var_dump($allCategories);
-
-        return $allCategories;
+        return $hydratedCategory;
 
     }
 

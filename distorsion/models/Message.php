@@ -7,15 +7,15 @@ class Message
     private ?int $id;
     private string $content;
     private int $roomId;
-    private User $author;
+    private int $userId;
 
     // Constructor //
 
-    public function __construct(string $content, User $author, int $roomId)
+    public function __construct(string $content, int $userId, int $roomId)
     {
         $this->id = NULL;
         $this->content = $content;
-        $this->author = $author;
+        $this->userId = $userId;
         $this->roomId = $roomId;
     }
 
@@ -36,6 +36,11 @@ class Message
         return $this->roomId;
     }
 
+    public function getUserId() : int
+    {
+        return $this->userId;
+    }
+
     // Setters //
 
     public function setId($id) : void
@@ -51,6 +56,11 @@ class Message
     public function setRoomId($roomId) : void
     {
         $this->roomId = $roomId;
+    }
+
+    public function setUserId($userId) : void
+    {
+        $this->userId = $userId;
     }
 }
 

@@ -1,6 +1,8 @@
 <?php
 
-class MessageManager extends AbstractManager 
+require 'models/Message.php';
+
+class MessageManager extends AbstractManager
 {
 
     public function getMessageById(int $id) : Message
@@ -12,7 +14,7 @@ class MessageManager extends AbstractManager
         $query->execute($parameters);
         $message = $query->fetch(PDO::FETCH_ASSOC);
 
-        $MessageToLoad = new Message($message['content'], $message['author']);
+        $MessageToLoad = new Message($message['content'], $message['user_id'], $message['room_id']);
         $messageToLoad->setId($message['id']);
 
     }
@@ -26,7 +28,7 @@ class MessageManager extends AbstractManager
         $messages = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach($messages as $message)
         {
-            $messageToPush = new Message($message["content"], $message["author"]);
+            $messageToPush = new Message($message["content"], $message["user_id"], $message['room_id']);
             $messageToPush->setId($message["id"]);
             $messagesTab[] = $messageToPush;
         }
@@ -36,11 +38,12 @@ class MessageManager extends AbstractManager
 
     public function insertMessage(Message $message, int $roomId) :Message
     {
-        $query = $this->db->prepare('INSERT INTO messages (`id`, `content`, `room_id`) VALUES(NULL, :content, :room_id)');
+        $query = $this->db->prepare('INSERT INTO messages (`id`, `content`, `room_id`, `user_id`) VALUES(NULL, :content, :room_id, :user_id)');
 
         $parameters = [
         'content' => $message->getContent(),
-        'room_id'=> $roomId
+        'room_id'=> $roomId,
+        'user_id'=> $userId,
         ];
         $query->execute($parameters);
 
@@ -50,6 +53,26 @@ class MessageManager extends AbstractManager
 
         return $this->getmessageById($messageSelected['id']);
 
+    }
+
+    public function getAllMessagesByRoomId(int $roomId) : array
+    {
+        $messagesTab = [];
+
+        $query = $this->db->prepare('SELECT * FROM messages WHERE room_id= :room_id');
+        $parameters = [
+         'room_id' => $roomId,
+        ];
+        $query->execute($parameters);
+        $messages = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach($messages as $message)
+        {
+            $messageToPush = new Message($message["content"], $message["user_id"], $message['room_id']);
+            $messageToPush->setId($message["id"]);
+            $messagesTab[] = $messageToPush;
+        }
+
+        return $messagesTab;
     }
 }
 
