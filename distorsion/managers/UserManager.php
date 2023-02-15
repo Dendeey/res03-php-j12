@@ -19,7 +19,7 @@ class UserManager extends AbstractManager
 
     }
 
-    public function getUserByEmail(string $email) : User
+    public function getUserByEmail(string $email) : ?User
     {
         $query = $this->db->prepare('SELECT * FROM users WHERE email = :email');
         $parameters = [
@@ -27,11 +27,17 @@ class UserManager extends AbstractManager
         ];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
-        $userToLoad = new User($user['email'], $user['username'], $user['password']);
-        $userToLoad->setId($user['id']);
+        if ($user === false) {
+            return null;
+        }
 
-        return $userToLoad;
+        else {
+           $userToLoad = new User($user['email'], $user['username'], $user['password']);
+           $userToLoad->setId($user['id']);
+
+            return $userToLoad;
+        }
+
     }
 
     public function insertUser(User $user) : User

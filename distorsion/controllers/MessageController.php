@@ -20,13 +20,13 @@ class MessageController extends AbstractController
         render('index', ["messages"=>$this->mManager->getAllMessages()]);
     }
 
-	public function create(array $post) : void
+	/*public function create(array $post) : void
     {
-        $messageToAdd = new Message($post["content"]);
+        $messageToAdd = new Message($post["content"]/*,User connecté, Room dans laquelle je suis);
         $this->mManager->insertMessage($messageToAdd);
         render('create', ["message"=>$this->mManager->insertMessage($messageToAdd)]);
 
-    }
+    }*/
 }
 
 ?>

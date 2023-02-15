@@ -22,7 +22,7 @@ class RoomController extends AbstractController
 
 	public function create(array $post) : void
     {
-        $roomToAdd = new Room($post["name"]);
+        $roomToAdd = new Room($post["name"], $post['category-select']);
         $this->rManager->insertRoom($roomToAdd);
         render('create', ["room"=>$this->rManager->insertRoom($roomToAdd)]);
 

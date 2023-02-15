@@ -42,17 +42,15 @@ class UserController extends AbstractController
     public function register(array $post) : void
     {
         if (!empty($post['newUsername'])
+        && !empty($post['newEmail'])
         && !empty($post['newPassword'])
         && !empty($post['confirm-pwd'])
         ) {
 
             if ($post['newPassword'] === $post['confirm-pwd']) {
-
-                $userToCheck = $this->manager->getUserByEmail($post['email']);
-
-                if($userToCheck === false) {
-                    $hashedPass = password_hash($post['password'], PASSWORD_DEFAULT);
-                    $userToAdd = new User($post["email"], $post["username"], $hashedPass);
+                if($this->manager->getUserByEmail($post['newEmail']) === null) {
+                    $hashedPass = password_hash($post['newPassword'], PASSWORD_DEFAULT);
+                    $userToAdd = new User($post["newEmail"], $post["newUsername"], $hashedPass);
                     $this->manager->insertUser($userToAdd);
                     $this->render('authentification', []);
                 }
@@ -81,11 +79,14 @@ class UserController extends AbstractController
             $logEmail = $post['email'];
             $passToCheck = password_hash($post['password'], PASSWORD_DEFAULT);
             $userToCheck = $this->manager->getUserByEmail($logEmail);
+
             if ($userToCheck !== false) {
-                if (password_verify($passToCheck, $userToCheck->getPassword()) {
-                     $this->render('index',
-                    ["user" => $userToCheck,
-                     "data" => $this->display(),
+                if (password_verify ($passToCheck, $userToCheck->getPassword())) {
+                    $_SESSION['authentification'] = 'ok';
+                     $this->render ('index',
+                    [
+                     "user" => $userToCheck,
+                     "data" => $this->display()
                     ]
                    );
                 }
@@ -131,7 +132,7 @@ class UserController extends AbstractController
 	        "83c8b946aee433563583381d62aa9c15",
         );
 
-        $allMessages = $messageToLoad->getAllCategories();
+        $allMessages = $messageToLoad->getAllMessages();
 
         $roomToLoad = new RoomManager
         (
@@ -142,6 +143,17 @@ class UserController extends AbstractController
 	        "83c8b946aee433563583381d62aa9c15",
         );
 
+        $allRooms = $roomToLoad->getAllRooms();
+
+        foreach($allCategories as $category) {
+            foreach($allRooms as $room) {
+                if ($room->getCategoryId() === $category->getId) {
+                    $category->addRoom($room);
+                }
+            }
+        }
+
+        var_dump($allCategories);
 
     }
 
