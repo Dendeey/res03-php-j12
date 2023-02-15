@@ -1,27 +1,27 @@
 <section id="read">
     <h1 class="sr-only">Catégorie et salon</h1>
     <header>
-        <nav>
-            <ul>
-                <li><?php //catégorie ?> /</li>
-                <li><?php //room  ?></li>
-            </ul>
-        </nav>
+        <ul>
+            <li> Catégorie</li>
+            <p>/</p>
+            <li>Salon</li>
+        </ul>
     </header>
     <section>
         <ul>
+
             <?php foreach($data['messages'] as $message){ ?>
             <li>
                 <article>
                     <header>
-                        <?php // username de l'utilisateur ?>
+                        <h2>De Valmont</h2>
                     </header>
                     <p>
                         <?= $message->getContent() ?>
                     </p>
                 </article>
             </li>
-            <?php } ?>
+        
         </ul>
     </section>
     <?php require "_message-form.phtml"; ?>

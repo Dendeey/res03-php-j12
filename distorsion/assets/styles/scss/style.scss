@@ -1,0 +1,367 @@
+@import "reset";
+
+html
+{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #3a0ca3;
+    
+    .sr-only
+    {
+        display: none;
+    }
+    
+    & > header
+    {
+        display: grid;
+        grid-template-columns: 0.8fr 0.2fr;
+        height: 12vh;
+
+        
+        section:first-of-type
+        {
+            h1
+            {
+                font-size: 2.5rem;
+                font-weight: 600;
+                color: #f72585;
+                margin-left: 3.5vw;
+                margin-top: 2vw;
+            }
+        }
+        
+        section:last-of-type
+        {
+            ul
+            {
+                margin-left: 6vw;
+                margin-top: 2vw;
+                
+                li
+                {
+                    padding-bottom: 1em;
+                    color: white;
+                    font-size: 1.1em;
+                    
+                    button
+                    {
+                        color: #4cc9f0;
+                        background: transparent;
+                        border: none;
+                        padding: 0;
+                        font-size: 1.1em;
+                        text-decoration: underline;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    & > main
+    {
+        display: grid;
+        grid-template-columns: 0.2fr 0.8fr;
+        
+        #authentification
+        {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: rows;
+            gap: 10vw;
+            margin-left: 2vw;
+            margin-top: 15vh;
+            
+            p
+            {
+                font-size: 3em;
+                color: white;
+                font-weight: 600;
+                align-self: center;
+                text-transform: uppercase;
+            }
+            
+            #login
+            {
+                display: flex;
+                justify-self: center;
+                align-self: center;
+                
+                h2
+                {
+                    color: #4cc9f0;
+                    font-size: 3em;
+                    font-weight: 600;
+                    margin-bottom: 4vh;
+                    text-align: center;
+                }
+                
+                fieldset
+                {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 3vh;
+                    
+                    
+                    label
+                    {
+                        margin-bottom: 1vh;
+                        color: white;
+                        font-size: 1.3em;
+                    }
+                    
+                    input
+                    {
+                        height: 3vh;
+                        background: transparent;
+                        border: none;
+                        border-bottom: 2px solid white ;
+                    }
+                    
+                    input::placeholder
+                    {
+                      color: gray;
+                      
+                    }
+                    
+                    #login-button
+                    {
+                        border: none;
+                        border-radius: 3em;
+                        margin-top: 4vh;
+                        background: #4cc9f0;
+                        color: white;
+                        font-size: 1.3em;
+                        font-weight: 600;
+                        height: 5vh;
+                    }
+                }
+                
+                
+                
+            }
+            
+            #register
+            {
+                display: flex;
+                justify-self: center;
+                
+                h2
+                {
+                    color: #4cc9f0;
+                    font-size: 3em;
+                    font-weight: 600;
+                    margin-bottom: 4vh;
+                    text-align: center;
+                }
+                
+                fieldset
+                {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 3vh;
+                    
+                    
+                    label
+                    {
+                        margin-bottom: 1vh;
+                        color: white;
+                        font-size: 1.3em;
+                    }
+                    
+                    input
+                    {
+                        height: 3vh;
+                        background: transparent;
+                        border: none;
+                        border-bottom: 2px solid white ;
+                    }
+                    
+                    input::placeholder
+                    {
+                      color: gray;
+                      
+                    }
+                    
+                    #register-button
+                    {
+                        border: none;
+                        border-radius: 3em;
+                        margin-top: 4vh;
+                        background: #4cc9f0;
+                        color: white;
+                        font-size: 1.3em;
+                        font-weight: 600;
+                        height: 5vh;
+                    }
+                }
+            }
+        }
+        
+        aside
+        {
+            margin-top: 10vh;
+            
+            h2
+            {
+                color: gray;
+                font-size: 1.8em;
+                margin-bottom: 1vh;
+                margin-left: 3.5vw;
+            }
+            ul
+            {
+                
+                
+                li
+                {
+                    h3
+                    {
+                        color: white;
+                        font-size: 1.4em;
+                        margin-bottom: 2vh;
+                        margin-left: 3.5vw;
+                        font-weight: 600;
+                        
+                    }
+                    
+                    ul
+                    {
+                        padding-left: 1vw;
+                        
+                        h2
+                        {
+                            color: gray;
+                            font-size: 1.8em;
+                            margin-bottom: 1vh;
+                            margin-left: 3.5vw;
+                            
+                            
+                        }
+                        
+                        li
+                        {
+                            a
+                            {
+                                color: #4cc9f0;
+                                text-decoration: none;
+                                font-size: 1.4em;
+                                margin-bottom: 2vh;
+                                margin-left: 3.5vw;
+                                font-weight: 600;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        #read
+        {
+            background-color: rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-rows: 0.2fr 0.5fr 0.3fr;
+            height: 80vh;
+            
+            header
+            {
+                
+                ul
+                {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top: 2vh;
+                    gap: 1vw;
+                    
+                    li
+                    {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                    p
+                    {
+                        color: white;
+                        
+                    }
+                }
+            }
+            
+            section:first-of-type
+            {
+                ul
+                {
+                    li
+                    {
+                        article
+                        {
+                            header
+                            {
+                                h2
+                                {
+                                    margin-left: 6vh;
+                                    color: white;
+                                }
+                            }
+                            
+                            p
+                            {
+                                margin: 6vh;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            #write
+            {
+                background-color: rgba(0, 0, 0, 0.2);
+                
+                form
+                {
+                    
+                    
+                    fieldset
+                    {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 3vh;
+                        
+                        label
+                        {
+                            color: white;
+                        }
+                        
+                        textarea
+                        {
+                
+                            background: transparent;
+                            border: none;
+                            color: white;
+                            
+                        }
+                        
+                        input
+                        {
+                            border: none;
+                            background: #f72585;
+                            color: white;
+                            font-size: 1.3em;
+                            font-weight: 600;
+                            height: 5vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

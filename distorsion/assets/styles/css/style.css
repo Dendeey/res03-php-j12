@@ -66,28 +66,28 @@ body {
 body .sr-only {
   display: none;
 }
-body header {
+body > header {
   display: grid;
   grid-template-columns: 0.8fr 0.2fr;
-  height: 8vh;
+  height: 12vh;
 }
-body header section:first-of-type h1 {
+body > header section:first-of-type h1 {
   font-size: 2.5rem;
   font-weight: 600;
   color: #f72585;
+  margin-left: 3.5vw;
+  margin-top: 2vw;
+}
+body > header section:last-of-type ul {
   margin-left: 6vw;
   margin-top: 2vw;
 }
-body header section:last-of-type ul {
-  margin-left: 6vw;
-  margin-top: 2vw;
-}
-body header section:last-of-type ul li {
+body > header section:last-of-type ul li {
   padding-bottom: 1em;
   color: white;
   font-size: 1.1em;
 }
-body header section:last-of-type ul li button {
+body > header section:last-of-type ul li button {
   color: #4cc9f0;
   background: transparent;
   border: none;
@@ -95,11 +95,11 @@ body header section:last-of-type ul li button {
   font-size: 1.1em;
   text-decoration: underline;
 }
-body main {
+body > main {
   display: grid;
   grid-template-columns: 0.2fr 0.8fr;
 }
-body main #authentification {
+body > main #authentification {
   grid-column: 2/3;
   display: flex;
   flex-direction: rows;
@@ -107,45 +107,45 @@ body main #authentification {
   margin-left: 2vw;
   margin-top: 15vh;
 }
-body main #authentification p {
+body > main #authentification p {
   font-size: 3em;
   color: white;
   font-weight: 600;
   align-self: center;
   text-transform: uppercase;
 }
-body main #authentification #login {
+body > main #authentification #login {
   display: flex;
   justify-self: center;
   align-self: center;
 }
-body main #authentification #login h2 {
+body > main #authentification #login h2 {
   color: #4cc9f0;
   font-size: 3em;
   font-weight: 600;
   margin-bottom: 4vh;
   text-align: center;
 }
-body main #authentification #login fieldset {
+body > main #authentification #login fieldset {
   display: flex;
   flex-direction: column;
   margin-bottom: 3vh;
 }
-body main #authentification #login fieldset label {
+body > main #authentification #login fieldset label {
   margin-bottom: 1vh;
   color: white;
   font-size: 1.3em;
 }
-body main #authentification #login fieldset input {
+body > main #authentification #login fieldset input {
   height: 3vh;
   background: transparent;
   border: none;
   border-bottom: 2px solid white;
 }
-body main #authentification #login fieldset input::placeholder {
+body > main #authentification #login fieldset input::placeholder {
   color: gray;
 }
-body main #authentification #login fieldset #login-button {
+body > main #authentification #login fieldset #login-button {
   border: none;
   border-radius: 3em;
   margin-top: 4vh;
@@ -155,41 +155,126 @@ body main #authentification #login fieldset #login-button {
   font-weight: 600;
   height: 5vh;
 }
-body main #authentification #register {
+body > main #authentification #register {
   display: flex;
   justify-self: center;
 }
-body main #authentification #register h2 {
+body > main #authentification #register h2 {
   color: #4cc9f0;
   font-size: 3em;
   font-weight: 600;
   margin-bottom: 4vh;
   text-align: center;
 }
-body main #authentification #register fieldset {
+body > main #authentification #register fieldset {
   display: flex;
   flex-direction: column;
   margin-bottom: 3vh;
 }
-body main #authentification #register fieldset label {
+body > main #authentification #register fieldset label {
   margin-bottom: 1vh;
   color: white;
   font-size: 1.3em;
 }
-body main #authentification #register fieldset input {
+body > main #authentification #register fieldset input {
   height: 3vh;
   background: transparent;
   border: none;
   border-bottom: 2px solid white;
 }
-body main #authentification #register fieldset input::placeholder {
+body > main #authentification #register fieldset input::placeholder {
   color: gray;
 }
-body main #authentification #register fieldset #register-button {
+body > main #authentification #register fieldset #register-button {
   border: none;
   border-radius: 3em;
   margin-top: 4vh;
   background: #4cc9f0;
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 5vh;
+}
+body > main aside {
+  margin-top: 10vh;
+}
+body > main aside h2 {
+  color: gray;
+  font-size: 1.8em;
+  margin-bottom: 1vh;
+  margin-left: 3.5vw;
+}
+body > main aside ul li h3 {
+  color: white;
+  font-size: 1.4em;
+  margin-bottom: 2vh;
+  margin-left: 3.5vw;
+  font-weight: 600;
+}
+body > main aside ul li ul {
+  padding-left: 1vw;
+}
+body > main aside ul li ul h2 {
+  color: gray;
+  font-size: 1.8em;
+  margin-bottom: 1vh;
+  margin-left: 3.5vw;
+}
+body > main aside ul li ul li a {
+  color: #4cc9f0;
+  text-decoration: none;
+  font-size: 1.4em;
+  margin-bottom: 2vh;
+  margin-left: 3.5vw;
+  font-weight: 600;
+}
+body > main #read {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-rows: 0.2fr 0.5fr 0.3fr;
+  height: 80vh;
+}
+body > main #read header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2vh;
+  gap: 1vw;
+}
+body > main #read header ul li {
+  color: white;
+  font-size: 1.2em;
+}
+body > main #read header ul p {
+  color: white;
+}
+body > main #read section:first-of-type ul li article header h2 {
+  margin-left: 6vh;
+  color: white;
+}
+body > main #read section:first-of-type ul li article p {
+  margin: 6vh;
+  color: white;
+}
+body > main #read #write {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+body > main #read #write form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+body > main #read #write form fieldset label {
+  color: white;
+}
+body > main #read #write form fieldset textarea {
+  background: transparent;
+  border: none;
+  color: white;
+}
+body > main #read #write form fieldset input {
+  border: none;
+  background: #f72585;
   color: white;
   font-size: 1.3em;
   font-weight: 600;
