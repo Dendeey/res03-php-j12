@@ -18,11 +18,11 @@ body
         display: none;
     }
     
-    header
+    & > header
     {
         display: grid;
         grid-template-columns: 0.8fr 0.2fr;
-        height: 8vh;
+        height: 12vh;
 
         
         section:first-of-type
@@ -32,7 +32,7 @@ body
                 font-size: 2.5rem;
                 font-weight: 600;
                 color: #f72585;
-                margin-left: 6vw;
+                margin-left: 3.5vw;
                 margin-top: 2vw;
             }
         }
@@ -65,7 +65,7 @@ body
         }
     }
     
-    main
+    & > main
     {
         display: grid;
         grid-template-columns: 0.2fr 0.8fr;
@@ -200,6 +200,165 @@ body
                         font-size: 1.3em;
                         font-weight: 600;
                         height: 5vh;
+                    }
+                }
+            }
+        }
+        
+        aside
+        {
+            margin-top: 10vh;
+            
+            h2
+            {
+                color: gray;
+                font-size: 1.8em;
+                margin-bottom: 1vh;
+                margin-left: 3.5vw;
+            }
+            ul
+            {
+                
+                
+                li
+                {
+                    h3
+                    {
+                        color: white;
+                        font-size: 1.4em;
+                        margin-bottom: 2vh;
+                        margin-left: 3.5vw;
+                        font-weight: 600;
+                        
+                    }
+                    
+                    ul
+                    {
+                        padding-left: 1vw;
+                        
+                        h2
+                        {
+                            color: gray;
+                            font-size: 1.8em;
+                            margin-bottom: 1vh;
+                            margin-left: 3.5vw;
+                            
+                            
+                        }
+                        
+                        li
+                        {
+                            a
+                            {
+                                color: #4cc9f0;
+                                text-decoration: none;
+                                font-size: 1.4em;
+                                margin-bottom: 2vh;
+                                margin-left: 3.5vw;
+                                font-weight: 600;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        #read
+        {
+            background-color: rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-rows: 0.2fr 0.5fr 0.3fr;
+            height: 80vh;
+            
+            header
+            {
+                
+                ul
+                {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top: 2vh;
+                    gap: 1vw;
+                    
+                    li
+                    {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                    p
+                    {
+                        color: white;
+                        
+                    }
+                }
+            }
+            
+            section:first-of-type
+            {
+                ul
+                {
+                    li
+                    {
+                        article
+                        {
+                            header
+                            {
+                                h2
+                                {
+                                    margin-left: 6vh;
+                                    color: white;
+                                }
+                            }
+                            
+                            p
+                            {
+                                margin: 6vh;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            #write
+            {
+                background-color: rgba(0, 0, 0, 0.2);
+                
+                form
+                {
+                    
+                    
+                    fieldset
+                    {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 3vh;
+                        
+                        label
+                        {
+                            color: white;
+                        }
+                        
+                        textarea
+                        {
+                
+                            background: transparent;
+                            border: none;
+                            color: white;
+                            
+                        }
+                        
+                        input
+                        {
+                            border: none;
+                            background: #f72585;
+                            color: white;
+                            font-size: 1.3em;
+                            font-weight: 600;
+                            height: 5vh;
+                        }
                     }
                 }
             }
