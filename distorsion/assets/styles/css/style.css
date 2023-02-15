@@ -52,4 +52,148 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #3a0ca3;
+}
+body .sr-only {
+  display: none;
+}
+body header {
+  display: grid;
+  grid-template-columns: 0.8fr 0.2fr;
+  height: 8vh;
+}
+body header section:first-of-type h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #f72585;
+  margin-left: 6vw;
+  margin-top: 2vw;
+}
+body header section:last-of-type ul {
+  margin-left: 6vw;
+  margin-top: 2vw;
+}
+body header section:last-of-type ul li {
+  padding-bottom: 1em;
+  color: white;
+  font-size: 1.1em;
+}
+body header section:last-of-type ul li button {
+  color: #4cc9f0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+body main {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+}
+body main #authentification {
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: rows;
+  gap: 10vw;
+  margin-left: 2vw;
+  margin-top: 15vh;
+}
+body main #authentification p {
+  font-size: 3em;
+  color: white;
+  font-weight: 600;
+  align-self: center;
+  text-transform: uppercase;
+}
+body main #authentification #login {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+body main #authentification #login h2 {
+  color: #4cc9f0;
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+body main #authentification #login fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
+}
+body main #authentification #login fieldset label {
+  margin-bottom: 1vh;
+  color: white;
+  font-size: 1.3em;
+}
+body main #authentification #login fieldset input {
+  height: 3vh;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+}
+body main #authentification #login fieldset input::placeholder {
+  color: gray;
+}
+body main #authentification #login fieldset #login-button {
+  border: none;
+  border-radius: 3em;
+  margin-top: 4vh;
+  background: #4cc9f0;
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 5vh;
+}
+body main #authentification #register {
+  display: flex;
+  justify-self: center;
+}
+body main #authentification #register h2 {
+  color: #4cc9f0;
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+body main #authentification #register fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
+}
+body main #authentification #register fieldset label {
+  margin-bottom: 1vh;
+  color: white;
+  font-size: 1.3em;
+}
+body main #authentification #register fieldset input {
+  height: 3vh;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+}
+body main #authentification #register fieldset input::placeholder {
+  color: gray;
+}
+body main #authentification #register fieldset #register-button {
+  border: none;
+  border-radius: 3em;
+  margin-top: 4vh;
+  background: #4cc9f0;
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 5vh;
+}
+
 /*# sourceMappingURL=style.css.map */
