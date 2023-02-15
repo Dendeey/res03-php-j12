@@ -18,13 +18,14 @@ class UserController extends AbstractController
     {
 	    $this->manager = new UserManager
 	    (
-	        "davidsim_phpj11",
+	        "davidsim_phpj12",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
 	        "83c8b946aee433563583381d62aa9c15"
 	    );
     }
+    
 
     // METHODES
 
@@ -41,7 +42,8 @@ class UserController extends AbstractController
 
     public function register(array $post) : void
     {
-<<<<<<< HEAD
+        var_dump($post);
+
         if (!empty($post['newUsername'])
         && !empty($post['newEmail'])
         && !empty($post['newPassword'])
@@ -63,7 +65,7 @@ class UserController extends AbstractController
             }
 
             else {
-                $this->render('authentification', ['error' => 'Informations de connexion incorrects']);
+                $this->render('authentification', ['error' => 'Les mots de passe ne correspondent pas ']);
             }
         }
 
@@ -71,40 +73,36 @@ class UserController extends AbstractController
             $this->render('authentification', ['error' => 'Merci de remplir tous les champs']);
         }
 
-=======
-        $userToAdd = new User($post["email"], $post["username"], $post["password"]);
-        $this->manager->insertUser($userToAdd);
-        $this->render('index', []);
->>>>>>> 64b153431c30f81f79eaaf773e8eb556e1e4d313
 
     }
 
     public function login(array $post) : void
     {
-<<<<<<< HEAD
+
         if (!empty($post['email']) && !empty($post['password'])) {
             $logEmail = $post['email'];
-            $passToCheck = password_hash($post['password'], PASSWORD_DEFAULT);
+            $passToCheck = $post['password'];
+
+
             $userToCheck = $this->manager->getUserByEmail($logEmail);
 
-            if ($userToCheck !== false) {
-                if (password_verify ($passToCheck, $userToCheck->getPassword())) {
+
+            $hashedPass = $userToCheck->getPassword();
+
+
+            if ($userToCheck !== null) {
+                if (password_verify($passToCheck, $hashedPass)) {
                     $_SESSION['authentification'] = 'ok';
-                     $this->render ('index',
-                    [
-                     "user" => $userToCheck,
-                     "data" => $this->display()
-                    ]
-                   );
+                    $this->index();
                 }
 
                 else {
-                    $this->render('authentification', ['error' => 'Identifiants de connexion incorrects']);
+                    $this->render('authentification', ['error' => 'Identifiants de connexion incorrects 1']);
                 }
             }
 
             else {
-                $this->render('authentification', ['error' => 'Identifiants de connexion incorrects']);
+                $this->render('authentification', ['error' => 'Identifiants de connexion incorrects 2']);
             }
         }
 
@@ -112,21 +110,14 @@ class UserController extends AbstractController
             $this->render('authentification', ['error' => 'Merci de remplir tous les champs de connexion']);
         }
 
-
-=======
-        $logEmail = $post["email"];
-        $this->manager->getUserByEmail($logEmail);
-        $this->render('index', );
->>>>>>> 64b153431c30f81f79eaaf773e8eb556e1e4d313
     }
 
     public function display() : array
     {
-        $bigData = [];
 
         $categoryToLoad = new CategoryManager
         (
-            "davidsim_phpj11",
+            "davidsim_phpj12",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -137,7 +128,7 @@ class UserController extends AbstractController
 
         $messageToLoad = new MessageManager
         (
-            "davidsim_phpj11",
+            "davidsim_phpj12",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -148,7 +139,7 @@ class UserController extends AbstractController
 
         $roomToLoad = new RoomManager
         (
-            "davidsim_phpj11",
+            "davidsim_phpj12",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -166,6 +157,8 @@ class UserController extends AbstractController
         }
 
         var_dump($allCategories);
+
+        return $allCategories;
 
     }
 

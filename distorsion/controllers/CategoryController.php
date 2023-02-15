@@ -10,7 +10,7 @@ class CategoryController extends AbstractController
 	public function __construct()
 	{
 	    $this->categoryManager = new CategoryManager(
-	        "davidsim_phpj11",
+	        "davidsim_phpj12",
 	        "3306",
 	        "db.3wa.io",
 	        "davidsim",
@@ -20,14 +20,14 @@ class CategoryController extends AbstractController
 
 	public function index()
     {
-        $this->render('index', ["users"=>$this->uManager->getAllCategories()]);
+        $this->render('index', ["users"=>$this->categoryManager->getAllCategories()]);
     }
 
 	public function create(array $post) : void
     {
         $categoryToAdd = new Category($post["name"], $post["description"]);
-        $this->uManager->insertCategory($categoryToAdd);
-        $this->render('create', ["category"=>$this->uManager->insertCategory($categoryToAdd)]);
+        $this->categoryManager->insertCategory($categoryToAdd);
+        $this->render('create', ["category"=>$this->categoryManager->insertCategory($categoryToAdd)]);
 
     }
 

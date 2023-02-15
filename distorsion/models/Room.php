@@ -4,7 +4,7 @@ class Room
 {
     // Attributs //
 
-    private int $id;
+    private ?int $id;
     private string $name;
     private array $messages;
     private int $categoryId;

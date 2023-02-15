@@ -4,7 +4,7 @@ class Message
 {
     // Attributs //
 
-    private int $id;
+    private ?int $id;
     private string $content;
     private int $roomId;
     private User $author;

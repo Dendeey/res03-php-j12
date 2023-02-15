@@ -1,5 +1,6 @@
 <?php
 
+require 'models/User.php';
 
 class UserManager extends AbstractManager
 {
@@ -20,13 +21,12 @@ class UserManager extends AbstractManager
 
     public function getUserByEmail(string $email) : ?User
     {
-        $query = $db->prepare('SELECT * FROM users WHERE email = :email');
+        $query = $this->db->prepare('SELECT * FROM users WHERE email = :email');
         $parameters = [
         'email' => $email
         ];
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
         if ($user === false) {
             return null;
         }
@@ -38,11 +38,10 @@ class UserManager extends AbstractManager
             return $userToLoad;
         }
 
-=======
 
         $userToLoad = new User($user['email'], $user['username'], $user['password']);
         $userToLoad->setId($user['id']);
->>>>>>> 64b153431c30f81f79eaaf773e8eb556e1e4d313
+
     }
 
     public function insertUser(User $user) : User
